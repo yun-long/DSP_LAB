@@ -3,3 +3,5 @@
 
 %% Problem 2.1 Magic Matrics
 M = magic(5);
+
+%% Problem 2.2 Magic Matrics
