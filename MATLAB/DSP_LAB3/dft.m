@@ -1,4 +1,4 @@
-function [ y ] = dft( x )
+function [ y,w ] = dft( x )
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
 N = length(x);
@@ -10,5 +10,6 @@ for n1 = 1:N
    end
 end
 y = X*x';
+w = 2*pi*(0:1/length(y):1-1/length(y));
 end
 
