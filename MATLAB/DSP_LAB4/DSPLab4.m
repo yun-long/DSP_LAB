@@ -29,11 +29,16 @@ w1 = (0:1/length(y1):1-1/length(y1))*2*pi;
 w2 = (0:1/length(y2):1-1/length(y2))*2*pi;
 figure
 plot(w1,abs(y1),w2,abs(y2),'r--');
+% find the 3db point
+yhdrect1 = 20*log10(abs(hdhamm1));
+m = 3;
+[Min1, index1] = min(abs(yhdrect1)-m);
 % compare the frequency response of different windows with same length
 figure
 plot(w,20*log10(abs(hdrect1)),'r--',...
      w,20*log10(abs(hdbart1)),'g:',...
-     w,20*log10(abs(hdhamm1)));
+     w,20*log10(abs(hdhamm1)),...
+     w(index1),yhdrect1(index1),'ro');
 % compare the frequency response of the same window in different length
 %rectangular window
 figure
@@ -47,6 +52,7 @@ plot(w,20*log10(abs(hdbart1)),'r--',...
 figure
 plot(w,20*log10(abs(hdhamm1)),'r--',...
      w,20*log10(abs(hdhamm2)));
+
 %% Problem 7.2 Kaiser Window
 % parameters definition
 %low pass parameters
