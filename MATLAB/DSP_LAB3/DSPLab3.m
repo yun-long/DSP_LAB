@@ -56,12 +56,12 @@ end
 %% Problem 6.2 Discrete-Time Fourier Transform
 N1 = [16 32];
 % generate rectangular bartlett hamming windows
-RectWin12 = rectwin(N(1));
-RectWin36 = rectwin(N(2));
-BartWin12 = bartlett(N(1));
-BartWin36 = bartlett(N(2));
-HammWin12 = hamming(N(1));
-HammWin36 = hamming(N(2));
+RectWin12 = rectwin(N1(1));
+RectWin36 = rectwin(N1(2));
+BartWin12 = bartlett(N1(1));
+BartWin36 = bartlett(N1(2));
+HammWin12 = hamming(N1(1));
+HammWin36 = hamming(N1(2));
 % calculate the DTFT of the windows
 [dtftRect12, wRect12] = dtft(RectWin12);
 [dtftRect36, wRect36] = dtft(RectWin36);

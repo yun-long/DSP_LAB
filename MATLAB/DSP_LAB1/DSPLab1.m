@@ -76,15 +76,9 @@ end
 figure
 plot(ratio);
 hold on
-<<<<<<< HEAD
-x = 1:length(ratio);
-Phi(x) = (sqrt(5)+1)/2;
-plot(Phi,'r-');
-=======
 x = 0:0.1:length(ratio);
 Phi = (sqrt(5)+1)/2;
 plot(x,Phi,'r.-');
->>>>>>> master
 %% Problem 4.3 Statistical Measurements
 clear
 x     = rand(1000,1);
