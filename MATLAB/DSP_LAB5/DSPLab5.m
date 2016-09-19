@@ -109,7 +109,7 @@ ws = ft/(fsamp/2);
 n = 0:50;
 delta0 = +(n==0);
 % calculate the impulse response of the filters
-hnbutt = filter(bbutt,abutt,delta0);% ???? Some thing wrong with this 
+hnbutt = filter(bbutt,abutt,delta0);
 hncheb = filter(bcheb,acheb,delta0);
 hnelli = filter(belli,aelli,delta0);
 % calculate the transfer function
