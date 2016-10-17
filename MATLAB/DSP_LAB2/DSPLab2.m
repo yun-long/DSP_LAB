@@ -34,7 +34,7 @@ x2 = u0 - u6;
 x3 = 0.9.^n.*u0;
 x4 = 0.5*delta1 + delta2+ + 0.5*delta3;
 x5 = 0.9.^n.*cos(0.2*pi*n);
-x6 = sinc(0.2*pi*n);
+x6 = sinc(0.2*n);
 % 2) N.A.
 % 3) N.A.
 % 4) N.A.
@@ -42,25 +42,25 @@ x6 = sinc(0.2*pi*n);
 % Problem 6.1 Discrete-Time Signals
 figure
 subplot(3,2,1);
-plot(n,x1);
+stem(n,x1);
 title('sine function');
 subplot(3,2,2);
-plot(n,x2);
+stem(n,x2);
 title('unit step function');
 subplot(3,2,3);
-plot(n,x3);
+stem(n,x3);
 title('exponential function');
 subplot(3,2,4);
-plot(n,x4);
+stem(n,x4);
 title('Kronecker delta function');
 subplot(3,2,5);
-plot(n,x5);
+stem(n,x5);
 title('cosine function');
 subplot(3,2,6);
-plot(n,x6);
+stem(n,x6);
 title('sinc function');
 % implement convolution function in convmat.m
-close all;
+% close all;
 n = 1:36;
 w1 = 0.2*pi;
 w2 = 0.4*pi;
@@ -173,6 +173,7 @@ clear
 load b3pulses.mat
 % calculate the FFT of the input signal and plot it in frequency domain
 ffty = fft(x);
+figure
 plot(1:length(ffty)/2,abs(ffty(1:length(ffty)/2)));
 % define the frequency parameters
 f1 = [5000  8000];

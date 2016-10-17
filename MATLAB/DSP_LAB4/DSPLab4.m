@@ -23,8 +23,8 @@ hdhamm1 = fft(h1.*hammWin1',512);
 hdhamm2 = fft(h2.*hammWin2',512);
 w = (0:1/512:1-1/512)*2*pi;
 % display the frequency responses of FIR low pass filter 
-y1 = fft(h1);
-y2 = fft(h2);
+y1 = fft(h1,512);
+y2 = fft(h2,512);
 w1 = (0:1/length(y1):1-1/length(y1))*2*pi;
 w2 = (0:1/length(y2):1-1/length(y2))*2*pi;
 figure
@@ -134,7 +134,7 @@ hammWin = hamming(N);
 hx = firlp(N,wc);
 hd = hx.*hammWin';
 % filter signal
-yout = conv(hx,x_record);
+yout = conv(hd,x_record);
 figure
 plot(abs(fft(yout)));
 soundsc(yout);

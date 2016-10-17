@@ -142,6 +142,7 @@ end
 
 %% Problem 6.4 Inverse Filtering for Speech Dereverberation
 % generate a room impulse response
+clear 
 fs  = 44100;
 mic = [19, 18, 1.6];
 n   = 12;
@@ -149,8 +150,13 @@ r   = 0.8;
 rm  = [10, 14, 20];
 src = [5, 2, 1];
 h = rir(fs,mic,n,r,rm,src);
+Nh = length(h);
 % import the speech signal 
 [x, fs] = audioread('speech.wav');
+
+Nx = length(x);
+NM = Nh + Nx - 1;
+
 %soundsc(x);
 % filter the speech using generated room impulse response
 y = conv(h,x);
@@ -162,8 +168,13 @@ yy = fft(y);
 ny = 0:1/length(yy):1-1/length(yy);
 figure
 plot(nx,abs(yx),ny,abs(yy),'r.');
+soundsc(y);
+
+y2  = ifft(fft(h,NM).*fft(x,NM));
 
 
-
-
-
+figure 
+subplot(2,1,1);
+plot(abs(fft(x)));
+subplot(2,1,2);
+plot(abs(fft(y2)));
